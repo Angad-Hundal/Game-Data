@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
 </head>
 
 
@@ -22,7 +23,7 @@
         let date = new Date();
         let timestamp = date.toUTCString();
 
-        
+
         // value to be sent to server.js
         var params ='playerId=' + document.getElementById("playerId").value + '&gameId=' + document.getElementById("gameId").value+ '&points=' + document.getElementById("points").value + "&timestamp=" + timestamp;
         http.open('POST', url, true);
@@ -55,12 +56,14 @@
 
     <h1 class="heading"> Enter the player: </h1>
 
+    <br>
+
 
     <form class="card">
 
 
   
-    <div>
+    <div">
     <label for="playerId"> PlayerID: </label>
     <input id="playerId" type="number">
     </div>
@@ -82,9 +85,9 @@
 
 
 
-    <button  onclick= "post()" class="sumbit_button"> Submit </button>
+    <button  onclick= "post()" class="sumbit"> Submit </button>
 
-    <a onclick="parent.location='showTop.html'"> Show top 100 </a>
+    <a class="topButton" onclick="parent.location='showTop.html'"> Show top 100 </a>
 
   </form>
 </body>

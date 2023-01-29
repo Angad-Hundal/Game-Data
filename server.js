@@ -54,7 +54,7 @@ connection.query(`SHOW DATABASES`, function (err, results) {
             connection.query(`CREATE TABLE IF NOT EXISTS playerData.players3 (
             playerId INT NOT NULL PRIMARY KEY,
             gameId INT NOT NULL,
-            points INT NOT NULL,
+            points INT NOT NULL DEFAULT 0,
             timestamp VARCHAR(255) NOT NULL
             )`, function (err, result) {
             if (err) throw err;

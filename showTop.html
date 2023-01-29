@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
 </head>
 
 
@@ -71,19 +72,19 @@
 
     <h1 class="heading"> Top 100 players: </h1>
 
-    <a onclick="parent.location='enterData.html'"> Enter new data </a>
+    <a onclick="parent.location='enterData.html'" class="enterDataButton"> Enter new data </a>
 
     <table id="table" border="2" class="styled-table">
 
         <!-- ROW 0 That is the heading -->
-        <tr id="ttr">
+        <tr id="ttr" class= "each_height">
             <th>PlayerID</th>
             <th>GameID</th>
             <th>Points</th>
             <th>Timestamp</th>
         </tr>
 
-        <tr>
+        <tr class="each_height">
             <td></td>
             <td></td>
             <td></td>
