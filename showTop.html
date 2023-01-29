@@ -1,0 +1,97 @@
+<!Doctype html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<br><br>
+
+<body>
+
+    <script type="text/javascript">
+
+        var http = new XMLHttpRequest();
+
+        var url = '/getTop';
+
+
+        http.open('GET', url, true);
+        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        http.addEventListener('error', function (event) {
+            alert("Error in request.");
+        });
+
+
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+
+                var inventoryItem = http.responseText;
+
+                var obj = JSON.parse(inventoryItem);  // dict with one value and key is rows
+                array_of_dict = obj["rows"]      // array of dict
+
+
+                table = document.getElementById("table");
+                t_row = 1
+
+
+                for (var i = 0; i < array_of_dict.length; i++) {
+
+
+                    table.rows[t_row].cells[0].innerHTML = temp_id = array_of_dict[i]["playerId"]
+                    table.rows[t_row].cells[1].innerHTML = temp_id = array_of_dict[i]["gameId"]
+                    table.rows[t_row].cells[2].innerHTML = temp_id = array_of_dict[i]["points"]
+                    table.rows[t_row].cells[3].innerHTML = temp_id = array_of_dict[i]["timestamp"]
+
+                    t_row = t_row + 1;
+
+                    var newRow = table.insertRow(table.length);
+
+                    var cell0 = newRow.insertCell(0);
+                    var cell1 = newRow.insertCell(1);
+                    var cell2 = newRow.insertCell(2);
+                    var cell3 = newRow.insertCell(3);
+
+                }
+
+            }
+        };
+
+        http.send();
+
+    </script>
+
+
+
+    <h1 class="heading"> Top 100 players: </h1>
+
+    <a onclick="parent.location='enterData.html'"> Enter new data </a>
+
+    <table id="table" border="2" class="styled-table">
+
+        <!-- ROW 0 That is the heading -->
+        <tr id="ttr">
+            <th>PlayerID</th>
+            <th>GameID</th>
+            <th>Points</th>
+            <th>Timestamp</th>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            
+        </tr>
+    </table>
+
+
+</body>
+</html>

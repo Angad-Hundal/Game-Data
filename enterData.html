@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<br><br>
+
+
+<body>
+
+    <script type="text/javascript">
+
+        function post(){
+    
+        var http = new XMLHttpRequest();
+        var url = '/saveData';
+        let date = new Date();
+        let timestamp = date.toUTCString();
+
+        
+        // value to be sent to server.js
+        var params ='playerId=' + document.getElementById("playerId").value + '&gameId=' + document.getElementById("gameId").value+ '&points=' + document.getElementById("points").value + "&timestamp=" + timestamp;
+        http.open('POST', url, true);
+        console.log(params);
+
+            http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            http.addEventListener('error', function (event){
+                alert("Check the request again.");
+            });
+
+
+            http.onreadystatechange = function(){
+
+                console.log(http.status)
+
+                if(http.readyState == 4 && http.status == 200) {
+             
+                    var response = http.responseText;
+                    alert(response);
+             }
+            };
+
+
+            http.send(params);
+        }
+
+
+    </script>
+
+
+    <h1 class="heading"> Enter the player: </h1>
+
+
+    <form class="card">
+
+
+  
+    <div>
+    <label for="playerId"> PlayerID: </label>
+    <input id="playerId" type="number">
+    </div>
+
+    <br>
+    
+    <div>
+    <label for="gameId">GameID:</label>
+    <input id="gameId" type="number">
+    </div>
+    <br>
+
+
+    <div>
+    <label for="points">Points: </label>
+    <input id="points" type="number">
+    </div>
+    <br>
+
+
+
+    <button  onclick= "post()" class="sumbit_button"> Submit </button>
+
+    <a onclick="parent.location='showTop.html'"> Show top 100 </a>
+
+  </form>
+</body>
+
+</html>
