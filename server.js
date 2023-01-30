@@ -19,7 +19,6 @@ const connection = mysql.createPool({
     host: 'localhost', 
     user: 'root',
     password: '12345'
-    // database: 'playerData'
 });
 
 
@@ -72,6 +71,7 @@ connection.query(`SHOW DATABASES`, function (err, results) {
 
 
 // display page it should open to when started
+// our home page
 app.get('/', (req, res) => {
     res.redirect("/enterData.html");
   })

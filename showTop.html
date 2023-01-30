@@ -35,16 +35,16 @@
                 var inventoryItem = http.responseText;
 
                 var obj = JSON.parse(inventoryItem);  // dict with one value and key is rows
-                array_of_dict = obj["rows"]      // array of dict
+                array_of_dict = obj["rows"]      // array of dict containing our data
 
 
                 table = document.getElementById("table");
-                t_row = 1
+                t_row = 1   // variable to keep track of rows
 
 
                 for (var i = 0; i < array_of_dict.length; i++) {
 
-
+                    // set the values of given row and column in table
                     table.rows[t_row].cells[0].innerHTML = temp_id = array_of_dict[i]["playerId"]
                     table.rows[t_row].cells[1].innerHTML = temp_id = array_of_dict[i]["gameId"]
                     table.rows[t_row].cells[2].innerHTML = temp_id = array_of_dict[i]["points"]
@@ -52,8 +52,10 @@
 
                     t_row = t_row + 1;
 
+                    // insert new row to be used later on
                     var newRow = table.insertRow(table.length);
 
+                    // insert the cells in row
                     var cell0 = newRow.insertCell(0);
                     var cell1 = newRow.insertCell(1);
                     var cell2 = newRow.insertCell(2);

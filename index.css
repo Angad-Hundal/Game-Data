@@ -53,8 +53,9 @@ input{
 
 button{
   background-color: wheat;
-  color: #333;
+  /* color: #333; */
   border-radius: 20px;
+  border-color: wheat;
   height: 50px;
   width: 100px;
   margin: 10px auto;
@@ -67,7 +68,7 @@ a.topButton {
     background-color: wheat;
     color: #333;
     border-radius: 20px;
-    height: 25px;
+    height: 28px;
     width: 100px;
     text-align: center;
     display: inline-block;
@@ -99,6 +100,8 @@ table.styled-table {
     background-color: wheat;
     width: 900px;
     margin-top: 30px;
+    border-collapse: collapse;
+
 
   }
 
